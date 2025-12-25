@@ -1,26 +1,18 @@
 public class Item {
     private int id;
     private static int id_gen=1;
-    private String name;
     private int number;
     private double price;
-    Item(){
+    public Item(){
         id=id_gen++;
     }
-    Item(String name, int number, double price) {
+    public Item(int number, double price) {
         this();
-        setName(name);
         setNumber(number);
         setPrice(price);
     }
     public int getId() {
         return id;
-    }
-    public String getName(){
-        return name;
-    }
-    public void setName(String name){
-        this.name=name;
     }
     public int getNumber(){
         return number;
@@ -35,6 +27,6 @@ public class Item {
         return price;
     }
     public String toString() {
-        return id + ": " + name + " " + number + "x " + price;
+        return id + ": " + number + "x " + price;
     }
 }

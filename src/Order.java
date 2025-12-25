@@ -3,10 +3,10 @@ public class Order {
     private static int id_gen=1;
     private String status;
     private int days;
-    Order(){
+    public Order(){
         id=id_gen++;
     }
-    Order(String status, int days) {
+    public Order(String status, int days) {
         this();
         setStatus(status);
         setDays(days);
@@ -30,3 +30,4 @@ public class Order {
         return id + ": " +  status + " " + days+" days until arrive";
     }
 }
+
