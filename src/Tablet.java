@@ -5,9 +5,9 @@ public class Tablet extends Item {
 
     public Tablet(int number, double price, String brand, String OS, int storage) {
         super(number, price);
-        this.brand = brand;
-        this.OS = OS;
-        this.storage = storage;
+        setBrand(brand);
+        setOS(OS);
+        setStorage(storage);
     }
     public String getBrand() {
         return brand;

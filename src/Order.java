@@ -3,6 +3,7 @@ public class Order {
     private static int id_gen=1;
     private String status;
     private int days;
+    private int quantity;
     public Order(){
         id=id_gen++;
     }
@@ -25,6 +26,9 @@ public class Order {
     }
     public int getDays(){
         return days;
+    }
+    public void setQuantity(int quantity){
+        this.quantity=quantity;
     }
     public String toString(){
         return id + ": " +  status + " " + days+" days until arrive";
