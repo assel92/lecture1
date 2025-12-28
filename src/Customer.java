@@ -1,41 +1,23 @@
 public class Customer {
-    private Customer[] customers;
     private int id;
-    private static int id_gen=1;
+    private static int id_gen = 1;
     private String firstName;
     private String lastName;
     private String email;
-    Customer(){
-        id=id_gen++;
+
+    public Customer(String firstName, String lastName, String email) {
+        this.id = id_gen++;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
     }
-    Customer(String firstName,String lastName, String email) {
-        this();
-        setFirstName(firstName);
-        setLastName(lastName);
-        setEmail(email);
-    }
-    public int getId(){
+
+    public int getId() {
         return id;
     }
-    public void setFirstName(String firstName){
-        this.firstName=firstName;
-    }
-    public String getFirstName(){
-        return firstName;
-    }
-    public void setLastName(String lastName){
-        this.lastName=lastName;
-    }
-    public String getLastName(){
-        return lastName;
-    }
-    public void setEmail(String email){
-        this.email=email;
-    }
-    public String getEmail(){
-        return email;
-    }
+
+    @Override
     public String toString() {
-        return id + ": " + firstName + " " + lastName + " " + email;
+        return id + ": " + firstName + " " + lastName + " (" + email + ")";
     }
 }

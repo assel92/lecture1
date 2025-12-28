@@ -1,5 +1,4 @@
- public class Phone extends Item {
-    private Phone[] phones;
+public class Phone extends Item {
     private String brand;
     private String OS;
     private int storage;
@@ -9,24 +8,29 @@
         this.brand = brand;
         this.OS = OS;
         this.storage = storage;
-
     }
-     public String getBrand() {
-         return brand;
-     }
-     public void setBrand(String brand) {
-         this.brand = brand;
-     }
-     public String getOS() {
-         return OS;
-     }
-     public void setOS(String OS) {
-         this.OS = OS;
-     }
-     public int getStorage() {
-         return storage;
-     }
-     public void setStorage(int storage) {
-         this.storage = storage;
-     }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getOS() {
+        return OS;
+    }
+
+    public void setOS(String OS) {
+        this.OS = OS;
+    }
+
+    public int getStorage() {
+        return storage;
+    }
+
+    public void setStorage(int storage) {
+        this.storage = storage;
+    }
 }
