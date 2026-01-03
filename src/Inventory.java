@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
     public class Inventory {
@@ -45,10 +44,5 @@ import java.util.List;
                     }
                 }
             }
-        }
-
-        public void sortByPriceDescending() {
-            sortByPriceAscending();
-            Collections.reverse(items);
         }
     }
