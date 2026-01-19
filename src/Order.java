@@ -50,10 +50,11 @@ public class Order {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        if (this == o) return true;{
         if (!(o instanceof Order)) return false;
         Order order = (Order) o;
-        return id == order.id;
+        return id== order.id;
+        }
     }
 
     @Override
