@@ -5,8 +5,8 @@ public class Phone extends Item {
     private String OS;
     private int storage;
 
-    public Phone(int number, double price, String brand, String OS, int storage) {
-        super(number, price);
+    public Phone(int id, int number, float price, String brand, String OS, int storage) {
+        super(id, number, price);
         this.brand = brand;
         this.OS = OS;
         this.storage = storage;
@@ -35,4 +35,6 @@ public class Phone extends Item {
     public void setStorage(int storage) {
         this.storage = storage;
     }
+    @Override
+    public String toString() { return id+" "+ number +" "+ price+ " " + brand + " " + OS + " " + "with "+ storage+ " GB"; }
 }
