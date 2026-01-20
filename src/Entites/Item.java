@@ -1,3 +1,5 @@
+package Entites;
+
 import java.util.Objects;
 public abstract class Item {
     private int id;

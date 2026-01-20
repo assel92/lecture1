@@ -1,3 +1,5 @@
+package Entites;
+
 public class Order {
     private int id;
     private static int id_gen = 1;
@@ -45,7 +47,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order " + id + ": " + status + ", " + days + " days, qty=" + quantity;
+        return "Entites.Order " + id + ": " + status + ", " + days + " days, qty=" + quantity;
     }
 
     @Override

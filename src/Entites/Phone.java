@@ -1,3 +1,5 @@
+package Entites;
+
 public class Phone extends Item {
     private String brand;
     private String OS;
