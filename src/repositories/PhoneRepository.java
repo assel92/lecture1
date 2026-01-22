@@ -111,7 +111,7 @@ public class PhoneRepository implements PhRepos {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "DELETE FROM Phone WHERE brand=?";
+            String sql = "DELETE FROM Phone WHERE id=?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, id);
             int rowsAffected = st.executeUpdate();
