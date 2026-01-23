@@ -57,7 +57,7 @@ public class App {
                     System.out.println("2.Get phones");
                     System.out.println("3.Delete phone");
                     System.out.println("4.Select phone");
-                    System.out.println("5.Update brand");
+                    System.out.println("5.Update color");
                     System.out.println("6.Exit");
                     try {
                         System.out.print("Enter option (1-5): ");
@@ -75,7 +75,7 @@ public class App {
                             getPhoneMenu();
                         }
                         if (option3 == 5) {
-                           updatePhoneBrandMenu();
+                           updatePhoneColorMenu();
                         }
                         if (option3 == 6) {
                             break;
@@ -144,7 +144,9 @@ public class App {
             String OS = sc.next();
             System.out.println("Enter storage in GB");
             int storage = sc.nextInt();
-            String r = phoneControllers.addPhone(id, number, price, brand, OS, storage);
+            System.out.println("Enter color");
+            String color = sc.next();
+            String r = phoneControllers.addPhone(id, number, price, brand, OS, storage, color);
             System.out.println(r);
         }
         public void deletePhoneMenu() {
@@ -153,13 +155,13 @@ public class App {
             String r = phoneControllers.deletePhone(id);
             System.out.println(r);
         }
-        public void  updatePhoneBrandMenu() {
+        public void  updatePhoneColorMenu() {
             System.out.println("Enter phone id:");
             int id = sc.nextInt();
 
-            System.out.println("Enter new brand:");
-            String brand = sc.next();
-            String r = phoneControllers.updatePhoneBrand(id, brand);
+            System.out.println("Enter new color:");
+            String color = sc.next();
+            String r = phoneControllers.updatePhoneColor(id, color);
             System.out.println(r);
         }
 

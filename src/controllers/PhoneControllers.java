@@ -8,8 +8,8 @@ public class PhoneControllers {
     public PhoneControllers(PhRepos repos){
         this.repos=repos;
     }
-    public String addPhone(int id, int number, float price,String brand, String OS, int storage){
-        Phone phone = new Phone(id, number, price, brand, OS, storage);
+    public String addPhone(int id, int number, float price,String brand, String OS, int storage, String color){
+        Phone phone = new Phone(id, number, price, brand, OS, storage, color);
         boolean result = repos.addPhone(phone);
         return (result ? "Phone was added" : "Phone was not added");
     }
@@ -25,11 +25,11 @@ public class PhoneControllers {
         Phone phone = repos.getPhone(id);
         return (phone==null ? "Phone was not found" : "Phone was deleted");
     }
-    public String updatePhoneBrand(int id, String newBrand) {
-        boolean updated = repos.updatePhoneBrand(id, newBrand);
+    public String updatePhoneColor(int id, String color) {
+        boolean updated = repos.updatePhoneColor(id, color);
 
         if (updated) {
-            return "Brand updated successfully";
+            return "Color updated successfully";
         } else {
             return "Phone not found";
         }

@@ -18,7 +18,7 @@ public class PhoneRepository implements PhRepos {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "INSERT INTO Phone(id, number, price,brand, OS, storage) VALUES (?,?,?,?,?,?)";
+            String sql = "INSERT INTO Phone(id, number, price,brand, OS, storage, color) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, phone.getId());
             st.setInt(2, phone.getNumber());
@@ -26,6 +26,7 @@ public class PhoneRepository implements PhRepos {
             st.setString(4, phone.getBrand());
             st.setString(5, phone.getOS());
             st.setInt(6, phone.getStorage());
+            st.setString(7, phone.getColor());
             st.execute();
             return true;
         } catch (SQLException throwables) {
@@ -47,7 +48,7 @@ public class PhoneRepository implements PhRepos {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT id, number, price, brand, OS, storage FROM Phone WHERE id=?";
+            String sql = "SELECT id, number, price, brand, OS, storage, color FROM Phone WHERE id=?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
@@ -57,7 +58,8 @@ public class PhoneRepository implements PhRepos {
                         rs.getFloat("price"),
                         rs.getString("brand"),
                         rs.getString("OS"),
-                        rs.getInt("storage"));
+                        rs.getInt("storage"),
+                        rs.getString("color"));
                 return phone;
             }
         } catch (SQLException throwables) {
@@ -79,7 +81,7 @@ public class PhoneRepository implements PhRepos {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT id, number, price, brand, OS, storage FROM Phone";
+            String sql = "SELECT id, number, price, brand, OS, storage, color FROM Phone";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             List<Phone> phones = new LinkedList<>();
@@ -89,7 +91,8 @@ public class PhoneRepository implements PhRepos {
                         rs.getFloat("price"),
                         rs.getString("brand"),
                         rs.getString("OS"),
-                        rs.getInt("storage"));
+                        rs.getInt("storage"),
+                        rs.getString("color"));
                 phones.add(phone);
             }
             return phones;
@@ -132,15 +135,15 @@ public class PhoneRepository implements PhRepos {
         }
         return false;
     }
-    public boolean updatePhoneBrand(int id, String newBrand) {
+    public boolean updatePhoneColor(int id, String color) {
         Connection con = null;
         try {
             con = db.getConnection();
 
-            String sql = "UPDATE Phone SET brand = ? WHERE id = ?";
+            String sql = "UPDATE Phone SET color = ? WHERE id = ?";
             PreparedStatement st = con.prepareStatement(sql);
 
-            st.setString(1, newBrand);
+            st.setString(1, color);
             st.setInt(2, id);
 
             int rows = st.executeUpdate();
