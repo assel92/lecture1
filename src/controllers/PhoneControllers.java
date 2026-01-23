@@ -25,5 +25,15 @@ public class PhoneControllers {
         Phone phone = repos.getPhone(id);
         return (phone==null ? "Phone was not found" : "Phone was deleted");
     }
+    public String updatePhoneBrand(int id, String newBrand) {
+        boolean updated = repos.updatePhoneBrand(id, newBrand);
+
+        if (updated) {
+            return "Brand updated successfully";
+        } else {
+            return "Phone not found";
+        }
+    }
+
 
 }

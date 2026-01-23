@@ -132,4 +132,30 @@ public class PhoneRepository implements PhRepos {
         }
         return false;
     }
+    public boolean updatePhoneBrand(int id, String newBrand) {
+        Connection con = null;
+        try {
+            con = db.getConnection();
+
+            String sql = "UPDATE Phone SET brand = ? WHERE id = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+
+            st.setString(1, newBrand);
+            st.setInt(2, id);
+
+            int rows = st.executeUpdate();
+            return rows > 0;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            try {
+                if (con != null) con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }

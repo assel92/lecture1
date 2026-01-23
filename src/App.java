@@ -6,7 +6,7 @@ public class App {
     private final CustomerControllers customerControllers;
     private final PhoneControllers phoneControllers;
     private final Scanner sc;
-    public App(CustomerControllers customerControllers,  PhoneControllers phoneControllers) {
+    public App(CustomerControllers customerControllers, PhoneControllers phoneControllers) {
         this.customerControllers = customerControllers;
         this.phoneControllers = phoneControllers;
         sc = new Scanner(System.in);
@@ -57,7 +57,8 @@ public class App {
                     System.out.println("2.Get phones");
                     System.out.println("3.Delete phone");
                     System.out.println("4.Select phone");
-                    System.out.println("5.Exit");
+                    System.out.println("5.Update brand");
+                    System.out.println("6.Exit");
                     try {
                         System.out.print("Enter option (1-5): ");
                         int option3 = sc.nextInt();
@@ -74,6 +75,9 @@ public class App {
                             getPhoneMenu();
                         }
                         if (option3 == 5) {
+                           updatePhoneBrandMenu();
+                        }
+                        if (option3 == 6) {
                             break;
                         }
                     } catch (Exception e) {
@@ -149,5 +153,15 @@ public class App {
             String r = phoneControllers.deletePhone(id);
             System.out.println(r);
         }
+        public void  updatePhoneBrandMenu() {
+            System.out.println("Enter phone id:");
+            int id = sc.nextInt();
+
+            System.out.println("Enter new brand:");
+            String brand = sc.next();
+            String r = phoneControllers.updatePhoneBrand(id, brand);
+            System.out.println(r);
+        }
+
     }
 

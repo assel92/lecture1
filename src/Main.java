@@ -1,3 +1,4 @@
+import Entites.Inventory;
 import controllers.CustomerControllers;
 import controllers.PhoneControllers;
 import data.PostgreDB;
@@ -15,7 +16,7 @@ public class Main {
         CustomerControllers customerControllers = new CustomerControllers(repo);
         PhRepos repos = new PhoneRepository(db);
         PhoneControllers phoneControllers = new PhoneControllers(repos);
-        App app = new App(customerControllers, phoneControllers);
+        App app = new App(customerControllers, phoneControllers );
         app.start();
     }
 }

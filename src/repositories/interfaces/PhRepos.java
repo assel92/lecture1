@@ -7,5 +7,6 @@ public interface PhRepos {
     Phone getPhone(int id);
     List<Phone> getAllPhones();
     boolean deletePhone(int id);
+    boolean updatePhoneBrand(int id, String newBrand);
 }
 
