@@ -1,18 +1,24 @@
 package Entites;
-
-public class Phone extends Item {
+import jakarta.persistence.*;
+@Entity
+@Table(name = "phones")
+public class PhoneEntity {
+    @Id
+    private Integer id;
+    private int number;
+    private float price;
     private String brand;
-    private String OS;
+    private String os;
     private int storage;
     private String color;
 
-    public Phone(int id, int number, float price, String brand, String OS, int storage, String color) {
-        super(id, number, price);
-        this.brand = brand;
-        this.OS = OS;
-        this.storage = storage;
-        this.color = color;
-    }
+   // public Phone(int id, int number, float price, String brand, String OS, int storage, String color) {
+       // super(id, number, price);
+    //    this.brand = brand;
+     //   this.OS = OS;
+    //   this.storage = storage;
+       // this.color = color;
+ //   }
     public String getColor(){
         return color;
     }

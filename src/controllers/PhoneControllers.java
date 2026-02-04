@@ -3,37 +3,44 @@ import Entites.Phone;
 import repositories.interfaces.PhRepos;
 import java.util.List;
 
-public class PhoneControllers {
-    private final PhRepos repos;
-    public PhoneControllers(PhRepos repos){
-        this.repos=repos;
-    }
-    public String addPhone(int id, int number, float price,String brand, String OS, int storage, String color){
-        Phone phone = new Phone(id, number, price, brand, OS, storage, color);
-        boolean result = repos.addPhone(phone);
-        return (result ? "Phone was added" : "Phone was not added");
-    }
-    public String getPhone(int id){
-        Phone phone = repos.getPhone(id);
-        return (phone==null ? "Phone was not found" : phone.toString());
-    }
-    public String getAllPhones(){
-        List<Phone> phones=repos.getAllPhones();
-        return phones.toString();}
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
-    public String deletePhone(int id){
-        Phone phone = repos.getPhone(id);
-        return (phone==null ? "Phone was not found" : "Phone was deleted");
-    }
-    public String updatePhoneColor(int id, String color) {
-        boolean updated = repos.updatePhoneColor(id, color);
+@RestController
+@RequestMapping("/api/phones")
+public class PhoneController {
 
-        if (updated) {
-            return "Color updated successfully";
-        } else {
-            return "Phone not found";
-        }
+    private final PhoneRepository repo;
+
+    public PhoneController(PhoneRepository repo) {
+        this.repo = repo;
     }
 
+    @GetMapping
+    public List<PhoneEntity> getAll() {
+        return repo.findAll();
+    }
 
+    @GetMapping("/{id}")
+    public PhoneEntity getById(@PathVariable Integer id) {
+        return repo.findById(id).orElse(null);
+    }
+
+    @PostMapping
+    public PhoneEntity create(@RequestBody PhoneEntity phone) {
+        return repo.save(phone);
+    }
+
+    @PutMapping("/{id}")
+    public PhoneEntity update(@PathVariable Integer id, @RequestBody PhoneEntity phone) {
+        phone.setId(id);
+        return repo.save(phone);
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable Integer id) {
+        repo.deleteById(id);
+        return "Deleted phone " + id;
+    }
 }
+

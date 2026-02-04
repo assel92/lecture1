@@ -6,7 +6,10 @@ import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PhoneRepository implements PhRepos {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PhoneRepository extends JpaRepository<PhoneEntity, Integer> {
+
     private final IDB db;
 
     public PhoneRepository (IDB db) {

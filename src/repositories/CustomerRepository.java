@@ -6,7 +6,9 @@ import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
-public class CustomerRepository implements CustRepos {
+import org.springframework.data.jpa.repository.JpaRepository;
+public interface CustomerRepository extends JpaRepository<CustomerEntity, Integer> {
+
     private final IDB db;
 
     public CustomerRepository(IDB db) {
